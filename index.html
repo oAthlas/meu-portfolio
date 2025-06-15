@@ -361,34 +361,33 @@
 
     <!-- Seção de Contato -->
   <section id="contact" style="padding: 6rem 5%; background-color: var(--bg-soft);">
-    <h2 style="
-      text-align: center;
-      font-size: 2.5rem;
-      margin-bottom: 3rem;
-      background: var(--gradient);
-      -webkit-background-clip: text;
-      background-clip: text;
-      -webkit-text-fill-color: transparent;
-    ">Vamos Conversar</h2>
+  <h2 style="text-align: center; font-size: 2.5rem; margin-bottom: 3rem; background: var(--gradient); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent;">
+    Vamos Conversar
+  </h2>
 
-    <form style="max-width: 600px; margin: 0 auto; background: var(--bg-dark); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow);">
-      <div style="margin-bottom: 1.5rem;">
-        <label for="name" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Nome</label>
-        <input type="text" id="name" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light);">
-      </div>
+  <form action="https://formsubmit.co/elderluiz72@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto; background: var(--bg-dark); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow);">
+    <!-- Adicione estes inputs hidden para configurar o FormSubmit -->
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="_next" value="https://oathlas.github.io/meu-portfolio/">
+    <input type="hidden" name="_subject" value="Nova mensagem do portfólio!">
+    
+    <div style="margin-bottom: 1.5rem;">
+      <label for="name" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Nome</label>
+      <input type="text" id="name" name="name" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light);">
+    </div>
 
-      <div style="margin-bottom: 1.5rem;">
-        <label for="email" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Email</label>
-        <input type="email" id="email" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light);">
-      </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="email" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Email</label>
+      <input type="email" id="email" name="email" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light);">
+    </div>
 
-      <div style="margin-bottom: 1.5rem;">
-        <label for="message" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Mensagem</label>
-        <textarea id="message" rows="5" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light); resize: vertical;"></textarea>
-      </div>
+    <div style="margin-bottom: 1.5rem;">
+      <label for="message" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Mensagem</label>
+      <textarea id="message" name="message" rows="5" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light); resize: vertical;"></textarea>
+    </div>
 
-      <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
-    </form>
+    <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
+  </form>
   </section>
 
   <!-- Rodapé -->
