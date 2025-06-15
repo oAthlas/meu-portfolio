@@ -367,8 +367,9 @@
 
   <form action="https://formsubmit.co/elderluiz72@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto; background: var(--bg-dark); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow);">
     <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://oathlas.github.io/meu-portfolio/">
+    <input type="hidden" name="_next" value="https://oathlas.github.io/meu-portfolio/#contact">
     <input type="hidden" name="_subject" value="Nova mensagem do portfólio!">
+    <input type="hidden" name="_autoresponse" value="Recebemos sua mensagem! Em breve entrarei em contato.">
     
     <div style="margin-bottom: 1.5rem;">
       <label for="name" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Nome</label>
@@ -404,13 +405,6 @@
   </footer>
 
   <script>
-    // Form submission feedback
-    document.querySelector("form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Obrigado pela sua mensagem, vou responder em breve!");
-      this.reset();
-    });
-
      // Menu mobile
     const mobileMenu = document.getElementById('mobile-menu');
     const navLinks = document.getElementById('nav-links');
