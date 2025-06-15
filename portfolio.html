@@ -1,680 +1,364 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Meu Portfólio Impactante</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        :root {
-            --primary: #00fff2;
-            --primary-dark: #00ccc2;
-            --secondary: #000000;
-            --light: #ffffff;
-            --gradient: linear-gradient(135deg, #00fff2 0%, #00ccc2 100%);
-            --shadow: 0 10px 30px rgba(0, 255, 255, 0.3);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
-
-        body {
-            background-color: #f8f8f8;
-            color: var(--secondary);
-            overflow-x: hidden;
-        }
-
-        /* Header */
-        header {
-            background: var(--gradient);
-            color: var(--light);
-            padding: 1.5rem 5%;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            box-shadow: var(--shadow);
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            animation: fadeInDown 0.8s ease-out;
-        }
-
-        .navbar {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 700;
-            letter-spacing: 1px;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-links a {
-            color: var(--light);
-            text-decoration: none;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .nav-links a:hover {
-            transform: translateY(-3px);
-        }
-
-        .nav-links a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            background: var(--light);
-            bottom: -5px;
-            left: 0;
-            transition: width 0.3s ease;
-        }
-
-        .nav-links a:hover::after {
-            width: 100%;
-        }
-
-        .menu-toggle {
-            display: none;
-            cursor: pointer;
-            font-size: 1.5rem;
-        }
-
-        /* Hero Section */
-        .hero {
-            height: 100vh;
-            display: flex;
-            align-items: center;
-            padding: 0 5%;
-            margin-top: 80px;
-            background: url('https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-4.0.3&auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
-            position: relative;
-            border-radius: 0 0 30px 30px;
-            overflow: hidden;
-        }
-
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 0, 0, 0.6);
-        }
-
-        .hero-content {
-            position: relative;
-            z-index: 1;
-            max-width: 600px;
-            color: var(--light);
-            animation: fadeInUp 1s ease-out;
-        }
-
-        .hero h1 {
-            font-size: 3.5rem;
-            margin-bottom: 1rem;
-            line-height: 1.2;
-        }
-
-        .hero p {
-            font-size: 1.2rem;
-            margin-bottom: 2rem;
-            opacity: 0.9;
-        }
-
-        .btn {
-            display: inline-block;
-            background: var(--gradient);
-            color: var(--light);
-            padding: 0.8rem 2rem;
-            border-radius: 50px;
-            text-decoration: none;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            border: none;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-        }
-
-        .btn:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 15px 30px rgba(0, 255, 255, 0.4);
-        }
-
-        /* About Section */
-        .section {
-            padding: 5rem 5%;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: 2.5rem;
-            margin-bottom: 3rem;
-            position: relative;
-            color: var(--primary);
-        }
-
-        .section-title::after {
-            content: '';
-            position: absolute;
-            width: 80px;
-            height: 4px;
-            background: var(--gradient);
-            bottom: -10px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-radius: 2px;
-        }
-
-        .about-content {
-            display: flex;
-            align-items: center;
-            gap: 3rem;
-            flex-wrap: wrap;
-        }
-
-        .about-text {
-            flex: 1;
-            min-width: 300px;
-        }
-
-        .about-text h3 {
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            color: var(--primary);
-        }
-
-        .about-text p {
-            margin-bottom: 1rem;
-            line-height: 1.6;
-        }
-
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1rem;
-            margin-top: 2rem;
-        }
-
-        .skill {
-            background: var(--gradient);
-            color: var(--light);
-            padding: 0.5rem 1.2rem;
-            border-radius: 50px;
-            font-size: 0.9rem;
-            box-shadow: 0 4px 15px rgba(255, 0, 51, 0.2);
-        }
-
-        .about-image {
-            flex: 1;
-            min-width: 300px;
-            position: relative;
-            animation: float 6s ease-in-out infinite;
-        }
-
-        .about-image img {
-            width: 100%;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        /* Portfolio Section */
-        .portfolio {
-            background-color: #f0f0f0;
-        }
-
-        .portfolio-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 2rem;
-        }
-
-        .portfolio-item {
-            background: var(--light);
-            border-radius: 20px;
-            overflow: hidden;
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .portfolio-item:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow);
-        }
-
-        .portfolio-img {
-            height: 250px;
-            overflow: hidden;
-        }
-
-        .portfolio-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-
-        .portfolio-item:hover .portfolio-img img {
-            transform: scale(1.1);
-        }
-
-        .portfolio-info {
-            padding: 1.5rem;
-        }
-
-        .portfolio-info h3 {
-            font-size: 1.3rem;
-            margin-bottom: 0.5rem;
-            color: var(--primary);
-        }
-
-        .portfolio-info p {
-            color: #666;
-            margin-bottom: 1rem;
-        }
-
-        .portfolio-tags {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.5rem;
-        }
-
-        .tag {
-            background: var(--secondary);
-            color: var(--light);
-            padding: 0.3rem 0.8rem;
-            border-radius: 50px;
-            font-size: 0.7rem;
-        }
-
-        .portfolio-item a {
-            text-decoration: none;
-            color: inherit;
-        }
-
-        .portfolio-img {
-            position: relative;
-        }
-
-        .portfolio-img::after {
-            content: "Ver Projeto →";
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: rgba(0, 255, 242, 0.8);
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-weight: bold;
-            font-size: 1.2rem;
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .portfolio-img:hover::after {
-            opacity: 1;
-        }
-
-        /* Contact Section */
-        .contact {
-            text-align: center;
-        }
-
-        .contact-form {
-            max-width: 600px;
-            margin: 0 auto;
-            background: var(--light);
-            padding: 2rem;
-            border-radius: 20px;
-            box-shadow: var(--shadow);
-        }
-
-        .form-group {
-            margin-bottom: 1.5rem;
-            text-align: left;
-        }
-
-        .form-group label {
-            display: block;
-            margin-bottom: 0.5rem;
-            font-weight: 500;
-            color: var(--primary);
-        }
-
-        .form-control {
-            width: 100%;
-            padding: 0.8rem;
-            border: 2px solid #ddd;
-            border-radius: 10px;
-            font-size: 1rem;
-            transition: all 0.3s ease;
-        }
-
-        .form-control:focus {
-            border-color: var(--primary);
-            outline: none;
-            box-shadow: 0 0 0 3px rgba(0, 217, 255, 0.2);
-        }
-
-        textarea.form-control {
-            min-height: 150px;
-            resize: vertical;
-        }
-
-        /* Footer */
-        footer {
-            background: var(--secondary);
-            color: var(--light);
-            text-align: center;
-            padding: 2rem 5%;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-        }
-
-        .social-links {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin: 1.5rem 0;
-        }
-
-        .social-links a {
-            color: var(--light);
-            font-size: 1.5rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--primary);
-            transform: translateY(-5px);
-        }
-
-        .copyright {
-            opacity: 0.7;
-            font-size: 0.9rem;
-        }
-
-        /* Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes fadeInDown {
-            from {
-                opacity: 0;
-                transform: translateY(-30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-            50% {
-                transform: translateY(-20px);
-            }
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .nav-links {
-                position: fixed;
-                top: 80px;
-                left: -100%;
-                width: 100%;
-                height: calc(100vh - 80px);
-                background: var(--gradient);
-                flex-direction: column;
-                align-items: center;
-                justify-content: center;
-                gap: 2rem;
-                transition: all 0.5s ease;
-            }
-
-            .nav-links.active {
-                left: 0;
-            }
-
-            .menu-toggle {
-                display: block;
-            }
-
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .hero p {
-                font-size: 1rem;
-            }
-
-            .section-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Portfólio | Athlas</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    :root {
+      --primary: #b30000;
+      --gold: #ffd700;
+      --bg-dark: #111111;
+      --bg-soft: #1c1c1c;
+      --text-light: #f5f5f5;
+      --text-muted: #cccccc;
+      --gradient: linear-gradient(135deg, #b30000 0%, #ff4d4d 50%, #ffd700 100%);
+      --shadow: 0 10px 40px rgba(255, 0, 0, 0.3);
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+      background-color: var(--bg-dark);
+      color: var(--text-light);
+      overflow-x: hidden;
+    }
+
+    a {
+      color: var(--gold);
+      text-decoration: none;
+      transition: all 0.3s ease;
+    }
+
+    a:hover {
+      color: #fff;
+    }
+
+    header {
+      background: var(--bg-soft);
+      box-shadow: var(--shadow);
+      padding: 1rem 5%;
+      position: fixed;
+      width: 100%;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 2rem;
+      font-weight: bold;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 2rem;
+    }
+
+    .nav-links a {
+      color: var(--text-light);
+      font-weight: 500;
+    }
+
+    .nav-links a:hover {
+      color: var(--gold);
+    }
+
+    .hero {
+      height: 100vh;
+      background: url('https://images.unsplash.com/photo-1518770660439-4636190af475?auto=format&fit=crop&w=1350&q=80') no-repeat center center/cover;
+      position: relative;
+      display: flex;
+      align-items: center;
+      padding: 0 5%;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      max-width: 700px;
+      animation: fadeInUp 1s ease-out;
+    }
+
+    .hero h1 {
+      font-size: 3.5rem;
+      margin-bottom: 1rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      color: var(--text-muted);
+      margin-bottom: 2rem;
+    }
+
+    .btn {
+      background: var(--gradient);
+      color: #111;
+      padding: 0.9rem 2rem;
+      border-radius: 50px;
+      font-weight: bold;
+      cursor: pointer;
+      border: none;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      box-shadow: 0 4px 15px rgba(255, 215, 0, 0.4);
+    }
+
+    .btn:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(255, 215, 0, 0.6);
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .skill, .tag {
+    background: var(--gradient);
+    color: #111;
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    font-weight: bold;
+    font-size: 0.8rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(255, 215, 0, 0.3);
+    display: inline-block;
+  }
+
+  .skill:hover, .tag:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(255, 215, 0, 0.5);
+    cursor: default;
+  }
+  </style>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <nav class="navbar">
-            <div class="logo">Portfólio</div>
-            <ul class="nav-links">
-                <li><a href="#home">Início</a></li>
-                <li><a href="#about">Sobre</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#contact">Contato</a></li>
-            </ul>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
-        </nav>
-    </header>
+  <header>
+    <nav class="navbar">
+      <div class="logo">Athlas</div>
+      <div class="nav-links">
+        <a href="#home">Início</a>
+        <a href="#about">Sobre</a>
+        <a href="#portfolio">Projetos</a>
+        <a href="#contact">Contato</a>
+      </div>
+    </nav>
+  </header>
 
-    <!-- Hero Section -->
-    <section class="hero" id="home">
-        <div class="hero-content">
-            <h1>Criando Experiências Digitais Memoráveis</h1>
-            <p>Design inovador e desenvolvimento front-end de alta performance para marcas que querem se destacar.</p>
-            <a href="#portfolio" class="btn">Ver Meus Trabalhos</a>
+  <section class="hero" id="home">
+    <div class="hero-content">
+      <h1>Inovação com Inteligência</h1>
+      <p>Sou Athlas, um jovem desenvolvedor que transforma ideias em soluções com inteligência artificial, estilo e sofisticação.</p>
+      <a href="#portfolio" class="btn">Explorar Portfólio</a>
+    </div>
+  </section>
+
+    <!-- Sobre Mim -->
+  <section class="section" id="about" style="padding: 6rem 5%; background-color: var(--bg-soft);">
+    <h2 style="
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    ">Sobre Mim</h2>
+
+    <div style="display: flex; flex-wrap: wrap; gap: 3rem; align-items: center; justify-content: center;">
+      <div style="flex: 1; min-width: 280px; max-width: 600px; animation: fadeInUp 1.2s ease;">
+        <h3 style="color: var(--gold); margin-bottom: 1rem;">Elder Luiz (Athlas)</h3>
+        <p style="line-height: 1.6; color: var(--text-muted); margin-bottom: 1rem;">
+          Desenvolvedor autodidata de 16 anos. Iniciei minha jornada com IAs e criei meu primeiro projeto real — a <strong>Lilie</strong>, uma assistente virtual com inteligência artificial, capaz de interagir com APIs do Google e responder comandos em linguagem natural.
+        </p>
+        <p style="line-height: 1.6; color: var(--text-muted);">
+          Minha maior habilidade é a capacidade de aprender sozinho. Uso Python como principal linguagem, mas domino também HTML, CSS e JavaScript no front-end.
+        </p>
+        <div class="skills" style="display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 2rem;">
+          <span class="skill">Python</span>
+          <span class="skill">HTML</span>
+          <span class="skill">CSS</span>
+          <span class="skill">JavaScript</span>
+          <span class="skill">Google Calendar API</span>
+          <span class="skill">GitHub Copilot</span>
+          <span class="skill">DeepSeek</span>
+          <span class="skill">OpenRouter</span>
         </div>
+      </div>
+
+      <div style="flex: 1; min-width: 280px; max-width: 400px; animation: fadeInUp 1.5s ease;">
+        <img src="images\logo_b.jpg" alt="Elder Luiz" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow);" />
+      </div>
+    </div>
+  </section>
+
+    <!-- Projeto Destaque: Lilie -->
+  <section id="lilie" style="padding: 6rem 5%; background: linear-gradient(145deg, #4d0000, #330000); color: var(--text-light);">
+    <div style="max-width: 1200px; margin: 0 auto;">
+      <h2 style="
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 3rem;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+      ">
+        Projeto em Destaque: Lilie
+      </h2>
+
+      <div style="display: flex; flex-wrap: wrap; align-items: center; gap: 3rem;">
+        <div style="flex: 1; min-width: 280px; animation: fadeInUp 1s ease;">
+          <img src="images\Lilie.png" alt="Projeto Lilie" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow);" />
+        </div>
+        <div style="flex: 1; min-width: 280px; animation: fadeInUp 1.3s ease;">
+          <h3 style="font-size: 1.8rem; color: var(--gold); margin-bottom: 1rem;">Lilie – Assistente Virtual com IA</h3>
+          <p style="line-height: 1.6; color: var(--text-muted); margin-bottom: 1.5rem;">
+            A <strong>Lilie</strong> é uma assistente pessoal criada com Python e inteligência artificial. Ela se conecta ao <strong>OpenRouter</strong> para gerar respostas inteligentes, realiza <strong>agendamentos com a Google Calendar API</strong> e pode fazer <strong>pesquisas na web automaticamente</strong> com a API de busca do Google.
+          </p>
+          <p style="color: var(--text-muted); margin-bottom: 1.5rem;">
+            A Lilie representa meu primeiro grande projeto, desenvolvido com foco em resolver problemas reais e oferecer uma experiência fluida de interação homem-máquina.
+          </p>
+          <a href="https://github.com/oAthlas/Lilie4.9" target="_blank" class="btn">Ver no GitHub</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+    <!-- Galeria de Projetos -->
+    <section id="portfolio" style="padding: 6rem 5%; background-color: var(--bg-dark);">
+    <h2 style="
+        text-align: center;
+        font-size: 2.5rem;
+        margin-bottom: 3rem;
+        background: var(--gradient);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+    ">Outros Projetos</h2>
+
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2.5rem;">
+        
+        <!-- Projeto Mastruz -->
+        <a href="https://oathlas.github.io/" target="_blank" style="text-decoration: none;">
+        <div style="background: var(--bg-soft); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="images\Mastruz.png" alt="Projeto Mastruz" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.5rem;">
+            <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Projeto Mastruz</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                Página desenvolvida para a feira de ciências, apresentando informações e aplicações da planta medicinal Mastruz.
+            </p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+            </div>
+            </div>
+        </div>
+        </a>
+
+        <!-- Landing Page de Estudo -->
+        <a href="pages\landing_page.html" target="_blank" style="text-decoration: none;">
+        <div style="background: var(--bg-soft); border-radius: 15px; overflow: hidden; box-shadow: var(--shadow); transition: transform 0.3s ease;" onmouseover="this.style.transform='translateY(-10px)'" onmouseout="this.style.transform='translateY(0)'">
+            <img src="images\NexaWeb.png" alt="Landing Page" style="width: 100%; height: 200px; object-fit: cover;">
+            <div style="padding: 1.5rem;">
+            <h3 style="color: var(--gold); margin-bottom: 0.5rem;">Landing Page de Estudo</h3>
+            <p style="color: var(--text-muted); margin-bottom: 1rem;">
+                Projeto prático criado com HTML e CSS puros para estudar responsividade e estilo visual moderno.
+            </p>
+            <div style="display: flex; gap: 0.5rem; flex-wrap: wrap;">
+                <span class="tag">HTML</span>
+                <span class="tag">CSS</span>
+            </div>
+            </div>
+        </div>
+        </a>
     </section>
 
-    <!-- About Section -->
-    <section class="section" id="about">
-        <h2 class="section-title">Sobre Mim</h2>
-        <div class="about-content">
-            <div class="about-text">
-                <h3>Designer & Desenvolvedor Front-End</h3>
-                <p>Com mais de 3 anos de experiência no mercado digital, crio interfaces que combinam estética impressionante com funcionalidade impecável.</p>
-                <p>Minha abordagem centrada no usuário garante que cada projeto não apenas pareça incrível, mas também ofereça uma experiência fluida e intuitiva.</p>
-                <div class="skills">
-                    <span class="skill">HTML5</span>
-                    <span class="skill">CSS3</span>
-                    <span class="skill">JavaScript</span>
-                    <span class="skill">React</span>
-                    <span class="skill">UI/UX Design</span>
-                    <span class="skill">Animations</span>
-                    <span class="skill">Responsive Design</span>
-                    <span class="skill">Figma</span>
-                </div>
-            </div>
-            <div class="about-image">
-                <img src=C:\Scripts\images\logo_b.jpg alt="Foto do profissional">
-            </div>
-        </div>
-    </section>
+    <!-- Seção de Contato -->
+  <section id="contact" style="padding: 6rem 5%; background-color: var(--bg-soft);">
+    <h2 style="
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      background: var(--gradient);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+    ">Vamos Conversar</h2>
 
-    <!-- Portfolio Section -->
-    <section class="section portfolio" id="portfolio">
-        <h2 class="section-title">Meus Projetos</h2>
-        <div class="portfolio-grid">
-            <div class="portfolio-item">
-                <a href="pages/landing_page.html" target="_blank">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Projeto 1">
-                </div>
-                 </a>
-                <div class="portfolio-info">
-                    <h3><a href="pages/landing_page.html" target="_blank">Landing Page Moderna</a></h3>
-                    <p>Design arrojado com animações fluidas para uma startup de tecnologia.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">HTML/CSS</span>
-                        <span class="tag">JavaScript</span>
-                        <span class="tag">GSAP</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1467232004584-a241de8bcf5d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Projeto 2">
-                </div>
-                <div class="portfolio-info">
-                    <h3>E-commerce Premium</h3>
-                    <p>Loja virtual com interface intuitiva e experiência de compra otimizada.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">React</span>
-                        <span class="tag">Redux</span>
-                        <span class="tag">Styled Components</span>
-                    </div>
-                </div>
-            </div>
-            <div class="portfolio-item">
-                <div class="portfolio-img">
-                    <img src="https://images.unsplash.com/photo-1547658719-da2b51169166?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Projeto 3">
-                </div>
-                <div class="portfolio-info">
-                    <h3>Aplicativo de Dashboard</h3>
-                    <p>Interface de administração com visualização de dados em tempo real.</p>
-                    <div class="portfolio-tags">
-                        <span class="tag">Vue.js</span>
-                        <span class="tag">Chart.js</span>
-                        <span class="tag">API REST</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+    <form style="max-width: 600px; margin: 0 auto; background: var(--bg-dark); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow);">
+      <div style="margin-bottom: 1.5rem;">
+        <label for="name" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Nome</label>
+        <input type="text" id="name" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light);">
+      </div>
 
-    <!-- Contact Section -->
-    <section class="section contact" id="contact">
-        <h2 class="section-title">Vamos Conversar</h2>
-        <form class="contact-form">
-            <div class="form-group">
-                <label for="name">Nome</label>
-                <input type="text" id="name" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="email" id="email" class="form-control" required>
-            </div>
-            <div class="form-group">
-                <label for="message">Mensagem</label>
-                <textarea id="message" class="form-control" required></textarea>
-            </div>
-            <button type="submit" class="btn">Enviar Mensagem</button>
-        </form>
-    </section>
+      <div style="margin-bottom: 1.5rem;">
+        <label for="email" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Email</label>
+        <input type="email" id="email" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light);">
+      </div>
 
-    <!-- Footer -->
-    <footer>
-        <div class="logo">Portfólio</div>
-        <div class="social-links">
-            <a href="#"><i class="fab fa-github"></i></a>
-            <a href="#"><i class="fab fa-linkedin"></i></a>
-            <a href="#"><i class="fab fa-dribbble"></i></a>
-            <a href="#"><i class="fab fa-behance"></i></a>
-        </div>
-        <p class="copyright">© 2023 Todos os direitos reservados</p>
-    </footer>
+      <div style="margin-bottom: 1.5rem;">
+        <label for="message" style="display: block; color: var(--gold); margin-bottom: 0.5rem;">Mensagem</label>
+        <textarea id="message" rows="5" required style="width: 100%; padding: 0.8rem; border: none; border-radius: 10px; background: #2c2c2c; color: var(--text-light); resize: vertical;"></textarea>
+      </div>
 
-    <script>
-        // Mobile Menu Toggle
-        const menuToggle = document.querySelector('.menu-toggle');
-        const navLinks = document.querySelector('.nav-links');
+      <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
+    </form>
+  </section>
 
-        menuToggle.addEventListener('click', () => {
-            navLinks.classList.toggle('active');
-        });
+  <!-- Rodapé -->
+  <footer style="background: #0a0a0a; color: var(--text-light); text-align: center; padding: 3rem 5%; margin-top: 4rem;">
+    <h3 class="logo" style="font-size: 2rem; margin-bottom: 1rem;">Athlas</h3>
+    <p style="color: var(--text-muted); margin-bottom: 1.5rem;">Conecte-se comigo nas redes:</p>
 
-        // Smooth Scrolling
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function(e) {
-                e.preventDefault();
-                
-                if (navLinks.classList.contains('active')) {
-                    navLinks.classList.remove('active');
-                }
+    <div class="social-links" style="display: flex; justify-content: center; gap: 2rem; margin-bottom: 1.5rem;">
+      <a href="https://github.com/oAthlas" target="_blank"><i class="fab fa-github" style="font-size: 1.5rem;"></i></a>
+      <a href="https://instagram.com/eu.elderluiz" target="_blank"><i class="fab fa-instagram" style="font-size: 1.5rem;"></i></a>
+      <a href="https://reddit.com/u/oAthlas" target="_blank"><i class="fab fa-reddit" style="font-size: 1.5rem;"></i></a>
+    </div>
 
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
-                });
-            });
-        });
+    <p style="font-size: 0.9rem; color: var(--text-muted); opacity: 0.8;">&copy; 2025 Elder Luiz (Athlas) — Todos os direitos reservados</p>
+  </footer>
 
-        // Animation on Scroll
-        const animateOnScroll = () => {
-            const elements = document.querySelectorAll('.about-image, .portfolio-item, .contact-form');
-            
-            elements.forEach(element => {
-                const elementPosition = element.getBoundingClientRect().top;
-                const screenPosition = window.innerHeight / 1.3;
-                
-                if (elementPosition < screenPosition) {
-                    element.style.opacity = '1';
-                    element.style.transform = 'translateY(0)';
-                }
-            });
-        };
-
-        // Set initial state
-        document.querySelectorAll('.about-image, .portfolio-item, .contact-form').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(30px)';
-            el.style.transition = 'all 0.6s ease-out';
-        });
-
-        window.addEventListener('scroll', animateOnScroll);
-        window.addEventListener('load', animateOnScroll);
-
-        // Form Submission
-        const form = document.querySelector('.contact-form');
-        form.addEventListener('submit', (e) => {
-            e.preventDefault();
-            alert('Obrigado pela sua mensagem! Entrarei em contato em breve.');
-            form.reset();
-        });
-    </script>
+  <script>
+    // Form submission feedback
+    document.querySelector("form").addEventListener("submit", function(e) {
+      e.preventDefault();
+      alert("Obrigado pela sua mensagem, Athlas responderá em breve!");
+      this.reset();
+    });
+  </script>
 </body>
 </html>
