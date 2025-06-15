@@ -366,7 +366,6 @@
   </h2>
 
   <form action="https://formsubmit.co/elderluiz72@gmail.com" method="POST" style="max-width: 600px; margin: 0 auto; background: var(--bg-dark); padding: 2rem; border-radius: 20px; box-shadow: var(--shadow);">
-    <!-- Adicione estes inputs hidden para configurar o FormSubmit -->
     <input type="hidden" name="_captcha" value="false">
     <input type="hidden" name="_next" value="https://oathlas.github.io/meu-portfolio/">
     <input type="hidden" name="_subject" value="Nova mensagem do portfólio!">
@@ -388,7 +387,7 @@
 
     <button type="submit" class="btn" style="width: 100%;">Enviar Mensagem</button>
   </form>
-  </section>
+</section>
 
   <!-- Rodapé -->
   <footer style="background: #0a0a0a; color: var(--text-light); text-align: center; padding: 3rem 5%; margin-top: 4rem;">
@@ -408,7 +407,7 @@
     // Form submission feedback
     document.querySelector("form").addEventListener("submit", function(e) {
       e.preventDefault();
-      alert("Obrigado pela sua mensagem, Athlas responderá em breve!");
+      alert("Obrigado pela sua mensagem, vou responder em breve!");
       this.reset();
     });
 
@@ -429,13 +428,6 @@
         navLinks.classList.remove('active');
         mobileMenu.innerHTML = '<i class="fas fa-bars"></i>';
       });
-    });
-
-    // Form submission feedback (mantenha o existente)
-    document.querySelector("form").addEventListener("submit", function(e) {
-      e.preventDefault();
-      alert("Obrigado pela sua mensagem, Athlas responderá em breve!");
-      this.reset();
     });
   </script>
 </body>
